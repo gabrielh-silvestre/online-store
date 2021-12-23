@@ -1,4 +1,4 @@
-import { HiShoppingCart, HiHeart } from 'react-icons/hi';
+import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
 
 import { Container, ContentContainer, HeaderNav } from './styles';
 
@@ -13,8 +13,9 @@ export function Header() {
         </label>
 
         <HeaderNav>
-          <a href="#"><HiHeart className='w-8 h-8' /></a>
-          <a href="#"><HiShoppingCart className='w-8 h-8' /></a>
+          <HiHeart className="w-8 h-8 mr-8" />
+          <HiShoppingCart className="w-8 h-8 mr-8" />
+          <HiMenu className="w-8 h-8" />
         </HeaderNav>
       </ContentContainer>
     </Container>
