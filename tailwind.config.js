@@ -7,7 +7,7 @@ module.exports = {
       black: '#082032',
       gray: '#2C394B',
       'gray-blue': '#334756',
-      'gray-light': '#B2B1B9',
+      'gray-light': '#EFEFEF',
       red: '#FF4C29',
     },
     container: {
