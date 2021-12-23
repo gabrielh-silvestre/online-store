@@ -22,15 +22,7 @@ export const ContentContainer = tw.div`
   text-gray-light
 `;
 
-const Nav = styled.nav`
-  a {
-    &:first-of-type {
-      margin-right: 2rem;
-    }
-  }
-`;
-
-export const HeaderNav = tw(Nav)`
+export const HeaderNav = tw.nav`
   flex
   justify-around
   items-center
