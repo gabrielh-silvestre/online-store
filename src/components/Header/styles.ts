@@ -10,6 +10,8 @@ export const Container = tw.header`
 export const ContentContainer = tw.div`
   container
 
+  relative
+
   h-full
 
   grid
@@ -26,4 +28,14 @@ export const HeaderNav = tw.nav`
   items-center
 
   text-base
+`;
+
+export const List = tw.div<{ $isHide: boolean }>`
+  ${({ $isHide }) => ($isHide ? 'hidden' : 'block')}
+
+  absolute
+  right-24
+  top-20
+
+  z-50
 `;
