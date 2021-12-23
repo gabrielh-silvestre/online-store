@@ -4,11 +4,12 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: '#082032',
-      gray: '#2C394B',
+      black: '#171717',
+      gray: '#444444',
       'gray-blue': '#334756',
-      'gray-light': '#EFEFEF',
-      red: '#FF4C29',
+      'gray-light': '#EDEDED',
+      red: '#DA0037',
+      green: '#39C18C',
     },
     container: {
       center: true,
