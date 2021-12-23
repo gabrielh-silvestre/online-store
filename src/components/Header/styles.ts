@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
 export const Container = tw.header`
@@ -24,7 +23,6 @@ export const ContentContainer = tw.div`
 
 export const HeaderNav = tw.nav`
   flex
-  justify-around
   items-center
 
   text-base
