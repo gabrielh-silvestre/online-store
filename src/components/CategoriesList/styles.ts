@@ -8,9 +8,9 @@ export const CategoriesNav = tw.nav`
   flex
   flex-col
 
-  rounded-bl-md
+  rounded-b-md
 
-  bg-gray
+  bg-black
 `;
 
 export const CategoryItem = tw.a`
@@ -25,5 +25,4 @@ export const CategoryItem = tw.a`
 
   filter
   hover:bg-red
-  hover:text-black
 `;
