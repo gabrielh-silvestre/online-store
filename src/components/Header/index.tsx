@@ -1,6 +1,7 @@
 import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
+import { CategoriesList } from '../CategoriesList';
 
-import { Container, ContentContainer, HeaderNav } from './styles';
+import { Container, ContentContainer, HeaderNav, List } from './styles';
 
 export function Header() {
   return (
@@ -17,6 +18,10 @@ export function Header() {
           <HiShoppingCart className="w-8 h-8 mr-8" />
           <HiMenu className="w-8 h-8" />
         </HeaderNav>
+
+        <List $isHide={false}>
+          <CategoriesList />
+        </List>
       </ContentContainer>
     </Container>
   );
