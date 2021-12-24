@@ -26,6 +26,7 @@ export const ContentContainer = tw.div`
 export const HeaderNav = tw.nav`
   flex
   items-center
+  justify-self-end
 
   text-base
 `;
@@ -34,7 +35,7 @@ export const List = tw.div<{ $isHide: boolean }>`
   ${({ $isHide }) => ($isHide ? 'hidden' : 'block')}
 
   absolute
-  right-24
+  right-20
   top-20
 
   z-50

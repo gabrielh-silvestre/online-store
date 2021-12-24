@@ -16,7 +16,7 @@ export function Header() {
   return (
     <Container>
       <ContentContainer>
-        <h2 className='my-auto'>Online Store</h2>
+        <h2 className='my-auto justify-self-start'>Online Store</h2>
 
         <SearchInput />
 
