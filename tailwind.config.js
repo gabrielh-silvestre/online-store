@@ -10,6 +10,7 @@ module.exports = {
       'gray-light': '#EDEDED',
       red: '#DA0037',
       green: '#39C18C',
+      white: '#FFFFFF',
     },
     container: {
       center: true,
