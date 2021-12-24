@@ -41,8 +41,8 @@ export function ProductCard(props: ProductCardProps) {
   return (
     <Container>
       <Image
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         src={props.thumbnail}
         alt={props.title}
         className="rounded-t-md"
