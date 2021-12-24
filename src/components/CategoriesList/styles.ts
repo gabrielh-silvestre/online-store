@@ -21,7 +21,7 @@ export const CategoriesNav = tw(ContainerNav)`
 
   overflow-y-auto
 
-  rounded-b-md
+  rounded-bl-md
 
   bg-black
 `;
