@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
 import { CategoriesList } from '../CategoriesList';
+import { SearchInput } from '../SearchInput';
 
 import { Container, ContentContainer, HeaderNav, List } from './styles';
 
@@ -15,11 +16,9 @@ export function Header() {
   return (
     <Container>
       <ContentContainer>
-        <h2>Online Store</h2>
+        <h2 className='my-auto'>Online Store</h2>
 
-        <label htmlFor="searchInput">
-          <input type="text" name="searchInput" id="searchInput" />
-        </label>
+        <SearchInput />
 
         <HeaderNav>
           <HiHeart className="w-8 h-8 mr-8" />
