@@ -5,7 +5,7 @@ export const Container = tw.article`
   p-8
 
   grid
-  grid-cols-5
+  grid-cols-4
   auto-rows-min
   gap-4
 
