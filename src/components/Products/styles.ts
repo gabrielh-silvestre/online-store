@@ -6,6 +6,7 @@ export const Container = tw.article`
 
   grid
   grid-cols-4
+  auto-rows-min
   gap-4
 
   rounded-md
