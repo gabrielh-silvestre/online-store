@@ -3,7 +3,13 @@ import Image from 'next/image';
 import { HiTruck } from 'react-icons/hi';
 import { BuyButton } from '../BuyButton';
 
-import { Container, ProductInfo, ProductName, ProductPrice } from './styles';
+import {
+  Container,
+  ProductInfo,
+  ProductName,
+  ProductPrice,
+  ProductShipping,
+} from './styles';
 
 export function ProductCard() {
   return (
@@ -21,10 +27,10 @@ export function ProductCard() {
           Lampada Super Led Headlight H1/h3/h4/h7/h11/h16/h27/hb3/hb4
         </ProductName>
         <ProductPrice>R$44,90</ProductPrice>
-        <div className="flex justify-between">
+        <ProductShipping>
           Frete grátis:
           <HiTruck className="w-6 h-6 text-green inline-block" />
-        </div>
+        </ProductShipping>
       </ProductInfo>
 
       <BuyButton />

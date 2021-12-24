@@ -6,15 +6,15 @@ export const Container = tw.section`
 
   rounded-md
 
-  transition-shadow
-  duration-200
+  bg-white
 
-  hover:shadow-lg
+  transition-shadow
+  duration-300
+
+  hover:shadow-xl
 `;
 
 export const ProductInfo = tw.div`
-  relative
-
   px-4
   my-2
 
@@ -35,4 +35,9 @@ export const ProductPrice = tw.p`
   font-bold
 
   my-2
+`;
+
+export const ProductShipping = tw.div`
+  flex
+  justify-between
 `;
