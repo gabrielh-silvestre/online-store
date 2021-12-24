@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
-const Nav = styled.nav`
+const ContainerNav = styled.section`
   -ms-overflow-style: none;
   scrollbar-width: none;
 
@@ -10,7 +10,7 @@ const Nav = styled.nav`
   }
 `;
 
-export const CategoriesNav = tw(Nav)`
+export const CategoriesNav = tw(ContainerNav)`
   w-48
   max-h-96
 
@@ -19,7 +19,7 @@ export const CategoriesNav = tw(Nav)`
   flex
   flex-col
 
-  overflow-y-scroll
+  overflow-y-auto
 
   rounded-b-md
 
