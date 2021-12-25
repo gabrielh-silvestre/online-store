@@ -1,27 +1,35 @@
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchProducts } from '../src/actions';
+import { GetServerSideProps } from 'next';
+
+import { apiSearch } from '../src/services/api';
 
 import { Products } from '../src/components/Products';
 
-const Search: NextPage = () => {
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const { q } = router.query;
+interface SearchProps {
+  products: {
+    results: [],
+  };
+}
 
-  useEffect(() => {
-    dispatch(fetchProducts({ term: q } as { term?: string }));
-  }, [dispatch, q]);
-
+const Search = ({ products }: SearchProps) => {
   return (
     <main className="min-h-screen relative bg-black pb-8">
       <div className="container">
-        <Products />
+        <Products products={products.results} />
       </div>
     </main>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({
+  query: { q },
+}) => {
+  const res = await apiSearch({ term: q } as { term: string });
+
+  return {
+    props: {
+      products: res.data,
+    },
+  };
 };
 
 export default Search;
