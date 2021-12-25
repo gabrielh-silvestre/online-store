@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
 const ScrollContainer = styled.article`
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
+  /* width */
   &::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #DA0037;
+    border-radius: 6px;
   }
 `;
 
