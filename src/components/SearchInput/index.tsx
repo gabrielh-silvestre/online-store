@@ -7,9 +7,11 @@ import { RootState } from '../../store';
 import { Input } from './style';
 
 export function SearchInput() {
-  const { searchTerm } = useSelector(({ search }: RootState) => search);
   const dispatch = useDispatch();
   const router = useRouter();
+  const { searchTerm, category } = useSelector(
+    ({ search }: RootState) => search
+  );
 
   const handleUserInput = ({
     target: { value },
@@ -19,7 +21,7 @@ export function SearchInput() {
 
   const handleUserTyping = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
     if (key === 'Enter') {
-      router.push(`/search?q=${searchTerm}`);
+      router.push(`/search?q=${searchTerm}&category=${category}`);
     }
   };
 
