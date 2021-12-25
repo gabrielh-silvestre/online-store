@@ -41,3 +41,8 @@ export const ProductShipping = tw.div`
   flex
   justify-between
 `;
+
+export const ButtonContainer = tw.div`
+  w-full
+  h-12
+`;

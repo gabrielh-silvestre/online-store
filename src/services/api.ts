@@ -46,7 +46,9 @@ export const apiSearch = ({ term, category }: SearchParams) => {
     .create({
       baseURL: 'https://api.mercadolibre.com/sites/MLB/',
     })
-    .get<SearchResponseData | undefined>(`search?category=${category}&q=${term}`);
+    .get<SearchResponseData | undefined>(
+      `search?category=${category}&q=${term}`
+    );
 };
 
 export const apiDetailItem = (productId: string) =>
@@ -55,3 +57,10 @@ export const apiDetailItem = (productId: string) =>
       baseURL: 'https://api.mercadolibre.com/items/',
     })
     .get(productId);
+
+export const apiSellerInfo = (sellerId: string) =>
+  axios
+    .create({
+      baseURL: 'https://api.mercadolibre.com/users/',
+    })
+    .get(sellerId);

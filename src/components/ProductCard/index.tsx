@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 import { BuyButton } from '../BuyButton';
 
 import {
+  ButtonContainer,
   Container,
   ProductInfo,
   ProductName,
@@ -40,13 +42,15 @@ export function ProductCard(props: ProductCardProps) {
 
   return (
     <Container>
-      <Image
-        width={500}
-        height={500}
-        src={props.thumbnail}
-        alt={props.title}
-        className="rounded-t-md"
-      />
+      <Link href={`/product/${props.id}`} passHref>
+        <Image
+          width={500}
+          height={500}
+          src={props.thumbnail}
+          alt={props.title}
+          className="rounded-t-md"
+        />
+      </Link>
 
       <ProductInfo>
         <ProductName>{props.title}</ProductName>
@@ -57,7 +61,9 @@ export function ProductCard(props: ProductCardProps) {
         </ProductShipping>
       </ProductInfo>
 
-      <BuyButton />
+      <ButtonContainer>
+        <BuyButton />
+      </ButtonContainer>
     </Container>
   );
 }
