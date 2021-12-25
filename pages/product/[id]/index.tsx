@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 import { BuyButton } from '../../../src/components/BuyButton';
 
-import { apiDetailItem } from '../../../src/services/api';
+import { apiDetailItem, apiSellerInfo } from '../../../src/services/api';
 
 import {
   ButtonContainer,
@@ -22,6 +22,7 @@ interface ProductDetailProps {
   productDetail: {
     id: string;
     title: string;
+    seller_id: number;
     price: number;
     currency_id: string;
     available_quantity: number;
@@ -34,9 +35,18 @@ interface ProductDetailProps {
       free_shipping: boolean;
     };
   };
+  seller: {
+    id: number;
+    nickname: string;
+    address: {
+      city: string;
+      state: string;
+    };
+    permalink: string;
+  };
 }
 
-const ProductDetail = ({ productDetail }: ProductDetailProps) => {
+const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
   const formatedPrice = () => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -70,7 +80,15 @@ const ProductDetail = ({ productDetail }: ProductDetailProps) => {
 
           <ProductContent>
             <h4 className="text-gray text-xl">
-              Vendido por: <span className="text-red">Seller</span>
+              Vendido por:{' '}
+              <a
+                href={seller.permalink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red"
+              >
+                {seller.nickname}
+              </a>
             </h4>
 
             <div>
@@ -97,10 +115,12 @@ export const getServerSideProps: GetServerSideProps = async ({
   query: { id },
 }) => {
   const res = await apiDetailItem(id as string);
+  const seller = await apiSellerInfo(`${res.data.seller_id}`);
 
   return {
     props: {
       productDetail: res.data,
+      seller: seller.data,
     },
   };
 };
