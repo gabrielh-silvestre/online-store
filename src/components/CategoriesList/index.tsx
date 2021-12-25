@@ -13,6 +13,8 @@ interface Categories {
   id: string;
 }
 
+const DEFAULT_CATEGORY_ITEM = { id: '', name: 'Nenhuma' };
+
 export function CategoriesList() {
   const [categories, setCategories] = useState<Categories[]>([]);
   const { searchTerm } = useSelector(({ search }: RootState) => search);
@@ -25,7 +27,7 @@ export function CategoriesList() {
   useEffect(() => {
     const fetchCategories = async () => {
       const res = await apiListCategories;
-      setCategories(res.data);
+      setCategories([DEFAULT_CATEGORY_ITEM, ...res.data]);
     };
 
     fetchCategories();
