@@ -23,6 +23,14 @@ export const ContentContainer = tw.div`
   text-gray-light
 `;
 
+export const HeaderTitle = tw.h2`
+  my-auto
+
+  justify-self-start
+
+  cursor-pointer
+`;
+
 export const HeaderNav = tw.nav`
   flex
   items-center
