@@ -17,6 +17,7 @@ import {
   ProductPrice,
   ProductQuantiy,
   ProductShipping,
+  SellerInfo,
 } from './style';
 
 interface ProductDetailProps {
@@ -86,17 +87,22 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
             </ImageContainer>
 
             <ProductContent>
-              <h4 className="text-gray text-xl">
-                Vendido por:{' '}
-                <a
-                  href={seller.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-red"
-                >
-                  {seller.nickname}
-                </a>
-              </h4>
+              <SellerInfo>
+                <h4 className="text-xl">
+                  Vendido por:{' '}
+                  <a
+                    href={seller.permalink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-red"
+                  >
+                    {seller.nickname}
+                  </a>
+                </h4>
+                <p>
+                  <span>{seller.address.state}</span> {seller.address.city}
+                </p>
+              </SellerInfo>
 
               <div>
                 <ProductPrice>{formatedPrice()}</ProductPrice>

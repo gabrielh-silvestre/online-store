@@ -20,6 +20,10 @@ export const ContentContainer = tw.article`
   bg-gray-light
 `;
 
+export const SellerInfo = tw.div`
+  text-gray
+`;
+
 export const ProductContainer = tw.div`
   mt-8
 
