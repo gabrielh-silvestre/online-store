@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import { ProductsReducer } from './productsReducer';
+import { SearchReducer } from './searchReducer';
 
-const rootReducer = combineReducers({ products: ProductsReducer });
+const rootReducer = combineReducers({ search: SearchReducer });
 
 export default rootReducer;
