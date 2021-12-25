@@ -1,14 +1,24 @@
-import { useSelector } from 'react-redux';
-
-import { RootState } from '../../store';
-
 import { ProductCard } from '../ProductCard';
 
 import { Container } from './styles';
 
-export function Products() {
-  const products = useSelector(({ products }: RootState) => products.products);
+interface ProductsProps {
+  products:
+    | Array<{
+        id: string;
+        title: string;
+        price: number;
+        currency_id: string;
+        avaible_quantity: number;
+        thumbnail: string;
+        shipping: {
+          free_shipping: boolean;
+        };
+      }>
+    | [];
+}
 
+export function Products({ products }: ProductsProps) {
   return (
     <Container>
       {products.length !== 0 ? (
