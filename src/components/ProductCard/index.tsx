@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { HiTruck } from 'react-icons/hi';
+import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 import { BuyButton } from '../BuyButton';
 
 import {
@@ -11,25 +11,49 @@ import {
   ProductShipping,
 } from './styles';
 
-export function ProductCard() {
+interface ProductCardProps {
+  id: string;
+  title: string;
+  price: number;
+  currency_id: string;
+  avaible_quantity: number;
+  thumbnail: string;
+  shipping: {
+    free_shipping: boolean;
+  };
+}
+
+export function ProductCard(props: ProductCardProps) {
+  const formatedPrice = () => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: props.currency_id,
+    }).format(props.price);
+  };
+
+  const isShippingFree = () =>
+    props.shipping.free_shipping ? (
+      <HiCheckCircle className="w-6 h-6 inline-block text-green" />
+    ) : (
+      <HiXCircle className="w-6 h-6 inline-block text-red" />
+    );
+
   return (
     <Container>
       <Image
-        width={300}
-        height={300}
-        src="http://http2.mlstatic.com/D_983592-MLB45095907129_032021-O.jpg"
-        alt="Título"
+        width={500}
+        height={500}
+        src={props.thumbnail}
+        alt={props.title}
         className="rounded-t-md"
       />
 
       <ProductInfo>
-        <ProductName>
-          Lampada Super Led Headlight H1/h3/h4/h7/h11/h16/h27/hb3/hb4
-        </ProductName>
-        <ProductPrice>R$44,90</ProductPrice>
+        <ProductName>{props.title}</ProductName>
+        <ProductPrice>{formatedPrice()}</ProductPrice>
         <ProductShipping>
           Frete grátis:
-          <HiTruck className="w-6 h-6 text-green inline-block" />
+          {isShippingFree()}
         </ProductShipping>
       </ProductInfo>
 

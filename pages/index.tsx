@@ -4,8 +4,10 @@ import { Products } from '../src/components/Products';
 
 const Home: NextPage = () => {
   return (
-    <main className="relative bg-black p-4">
-      <Products />
+    <main className="relative bg-black pb-8">
+      <div className="container">
+        <Products />
+      </div>
     </main>
   );
 };
