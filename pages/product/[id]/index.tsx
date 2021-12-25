@@ -63,7 +63,7 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
     );
 
   return (
-    <>
+    <div className="bg-black">
       <Head>
         <title>
           {productDetail.title} | {seller.nickname}
@@ -115,7 +115,7 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
           </ProductContainer>
         </ContentContainer>
       </Container>
-    </>
+    </div>
   );
 };
 
