@@ -1,7 +1,9 @@
 import tw from 'tailwind-styled-components';
 
 export const Button = tw.button`
-  h-10
+  w-full
+  h-full
+
   text-gray-light
   font-bold
 
