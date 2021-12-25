@@ -62,7 +62,7 @@ export function ProductCard(props: ProductCardProps) {
       </ProductInfo>
 
       <ButtonContainer>
-        <BuyButton />
+        <BuyButton {...props} />
       </ButtonContainer>
     </Container>
   );
