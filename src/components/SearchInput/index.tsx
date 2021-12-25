@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchProducts } from '../../actions';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setSearchTerm } from '../../actions';
+import { RootState } from '../../store';
 
 import { Input } from './style';
 
 export function SearchInput() {
-  const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { searchTerm, category } = useSelector(
+    ({ search }: RootState) => search
+  );
 
   const handleUserInput = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(value);
+    dispatch(setSearchTerm(value));
   };
 
   const handleUserTyping = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
     if (key === 'Enter') {
-      dispatch(fetchProducts({ term: searchTerm }));
+      router.push(`/search?q=${searchTerm}&category=${category}`);
     }
   };
 

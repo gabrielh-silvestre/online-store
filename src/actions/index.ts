@@ -1,15 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiSearch } from '../services/api';
+import { createAction } from '@reduxjs/toolkit';
 
-interface SearchOptions {
-  term?: string;
-  category?: string;
-}
+export const setSearchTerm = createAction<string>('search/term');
 
-export const fetchProducts = createAsyncThunk(
-  'fetch/products',
-  async (seach: SearchOptions) => {
-    const res = await apiSearch(seach);
-    return res.data;
-  }
-);
+export const setCategory = createAction<string>('search/category');

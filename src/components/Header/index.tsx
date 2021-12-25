@@ -1,10 +1,17 @@
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
 import { CategoriesList } from '../CategoriesList';
 import { SearchInput } from '../SearchInput';
 
-import { Container, ContentContainer, HeaderNav, List } from './styles';
+import {
+  Container,
+  ContentContainer,
+  HeaderNav,
+  HeaderTitle,
+  List,
+} from './styles';
 
 export function Header() {
   const [isListHide, setisListHide] = useState(true);
@@ -16,7 +23,9 @@ export function Header() {
   return (
     <Container>
       <ContentContainer>
-        <h2 className='my-auto justify-self-start'>Online Store</h2>
+        <Link href="/" passHref>
+          <HeaderTitle>Online Store</HeaderTitle>
+        </Link>
 
         <SearchInput />
 

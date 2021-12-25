@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategory } from '../../actions';
 
 import { apiListCategories } from '../../services/api';
+import { RootState } from '../../store';
 
 import { CategoriesNav, CategoryItem } from './styles';
 
@@ -10,13 +13,21 @@ interface Categories {
   id: string;
 }
 
+const DEFAULT_CATEGORY_ITEM = { id: '', name: 'Nenhuma' };
+
 export function CategoriesList() {
   const [categories, setCategories] = useState<Categories[]>([]);
+  const { searchTerm } = useSelector(({ search }: RootState) => search);
+  const dispatch = useDispatch();
+
+  const handleSelectCategory = (categoryId: string) => {
+    dispatch(setCategory(categoryId));
+  };
 
   useEffect(() => {
     const fetchCategories = async () => {
       const res = await apiListCategories;
-      setCategories(res.data);
+      setCategories([DEFAULT_CATEGORY_ITEM, ...res.data]);
     };
 
     fetchCategories();
@@ -25,8 +36,14 @@ export function CategoriesList() {
   return (
     <CategoriesNav>
       {categories.map(({ id, name }) => (
-        <Link key={id} passHref href={`/category/${id}`}>
-          <CategoryItem>{name}</CategoryItem>
+        <Link key={id} passHref href={`/search?q=${searchTerm}&category=${id}`}>
+          <CategoryItem
+            onClick={() => {
+              handleSelectCategory(id);
+            }}
+          >
+            {name}
+          </CategoryItem>
         </Link>
       ))}
     </CategoriesNav>

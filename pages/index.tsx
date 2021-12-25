@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <main className="min-h-screen relative bg-black pb-8">
       <div className="container">
-        <Products />
+        hello world
       </div>
     </main>
   );
