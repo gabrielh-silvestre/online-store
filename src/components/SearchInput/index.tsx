@@ -1,12 +1,11 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchProducts } from '../../actions';
 
 import { Input } from './style';
 
 export function SearchInput() {
   const [searchTerm, setSearchTerm] = useState('');
-  const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleUserInput = ({
     target: { value },
@@ -16,7 +15,7 @@ export function SearchInput() {
 
   const handleUserTyping = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
     if (key === 'Enter') {
-      dispatch(fetchProducts({ term: searchTerm }));
+      router.push(`/search?q=${searchTerm}`);
     }
   };
 
