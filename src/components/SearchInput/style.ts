@@ -5,7 +5,10 @@ export const Input = tw.input`
 
   px-4
 
+  text-lg
+  text-black
+
   rounded-md
 
-  text-black
+  bg-gray-light
 `;
