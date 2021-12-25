@@ -28,6 +28,7 @@ interface ProductDetailProps {
     price: number;
     currency_id: string;
     available_quantity: number;
+    thumbnail: string;
     secure_thumbnail: string;
     pictures: Array<{
       secure_url: string;
@@ -115,7 +116,7 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
               </div>
 
               <ButtonContainer>
-                <BuyButton />
+                <BuyButton {...productDetail} />
               </ButtonContainer>
             </ProductContent>
           </ProductContainer>
