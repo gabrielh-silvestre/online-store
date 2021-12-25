@@ -6,7 +6,7 @@ import { Products } from '../src/components/Products';
 
 interface SearchProps {
   products: {
-    results: [],
+    results: [];
   };
 }
 
@@ -21,9 +21,11 @@ const Search = ({ products }: SearchProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({
-  query: { q },
+  query: { q, category },
 }) => {
-  const res = await apiSearch({ term: q } as { term: string });
+  const res = await apiSearch(
+    { term: q, category } as { term: string, category: string }
+  );
 
   return {
     props: {
