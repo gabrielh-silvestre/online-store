@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 
 import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
@@ -62,52 +63,59 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
     );
 
   return (
-    <Container>
-      <ContentContainer>
-        <h1 className="col-span-2 text-black text-4xl">
-          {productDetail.title}
-        </h1>
+    <>
+      <Head>
+        <title>
+          {productDetail.title} | {seller.nickname}
+        </title>
+      </Head>
+      <Container>
+        <ContentContainer>
+          <h1 className="col-span-2 text-black text-4xl">
+            {productDetail.title}
+          </h1>
 
-        <ProductContainer>
-          <ImageContainer>
-            <Image
-              src={productDetail.pictures[0].secure_url}
-              width={400}
-              height={400}
-              alt={productDetail.title}
-            />
-          </ImageContainer>
+          <ProductContainer>
+            <ImageContainer>
+              <Image
+                src={productDetail.pictures[0].secure_url}
+                width={400}
+                height={400}
+                alt={productDetail.title}
+              />
+            </ImageContainer>
 
-          <ProductContent>
-            <h4 className="text-gray text-xl">
-              Vendido por:{' '}
-              <a
-                href={seller.permalink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-red"
-              >
-                {seller.nickname}
-              </a>
-            </h4>
+            <ProductContent>
+              <h4 className="text-gray text-xl">
+                Vendido por:{' '}
+                <a
+                  href={seller.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red"
+                >
+                  {seller.nickname}
+                </a>
+              </h4>
 
-            <div>
-              <ProductPrice>{formatedPrice()}</ProductPrice>
-              <ProductQuantiy>
-                Quantidade disponível: {productDetail.available_quantity}
-              </ProductQuantiy>
-              <ProductShipping>
-                Frete grátis: {isShippingFree()}
-              </ProductShipping>
-            </div>
+              <div>
+                <ProductPrice>{formatedPrice()}</ProductPrice>
+                <ProductQuantiy>
+                  Quantidade disponível: {productDetail.available_quantity}
+                </ProductQuantiy>
+                <ProductShipping>
+                  Frete grátis: {isShippingFree()}
+                </ProductShipping>
+              </div>
 
-            <ButtonContainer>
-              <BuyButton />
-            </ButtonContainer>
-          </ProductContent>
-        </ProductContainer>
-      </ContentContainer>
-    </Container>
+              <ButtonContainer>
+                <BuyButton />
+              </ButtonContainer>
+            </ProductContent>
+          </ProductContainer>
+        </ContentContainer>
+      </Container>
+    </>
   );
 };
 

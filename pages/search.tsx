@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetServerSideProps } from 'next';
@@ -24,11 +25,16 @@ const Search = ({ products }: SearchProps) => {
   });
 
   return (
-    <main className="min-h-screen relative bg-black pb-8">
-      <div className="container">
-        <Products products={products.results} />
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Search</title>
+      </Head>
+      <main className="min-h-screen relative bg-black pb-8">
+        <div className="container">
+          <Products products={products.results} />
+        </div>
+      </main>
+    </>
   );
 };
 
