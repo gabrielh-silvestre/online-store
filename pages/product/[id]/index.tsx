@@ -18,7 +18,7 @@ import {
   ProductQuantiy,
   ProductShipping,
   SellerInfo,
-} from './style';
+} from '../../../styles/pageProduct';
 
 interface ProductDetailProps {
   productDetail: {
