@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../src/actions';
 
 import { Bill } from '../src/components/Bill';
 import { CartButton } from '../src/components/CartButton';
@@ -15,6 +17,12 @@ import {
 } from '../styles/pageCart';
 
 const Cart: NextPage = () => {
+  const dispatch = useDispatch();
+
+  const handleResetCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <Container>
       <div className="container">
@@ -23,7 +31,7 @@ const Cart: NextPage = () => {
             <div className="grid grid-cols-3">
               <SectionTitle>Produto</SectionTitle>
               <div>
-                <CartButton fontSize="text-sm">
+                <CartButton fontSize="text-sm" onClick={handleResetCart}>
                   REMOVER TODOS OS PRODUTOS
                 </CartButton>
               </div>
