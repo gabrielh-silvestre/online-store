@@ -21,3 +21,5 @@ export const setCategory = createAction<string>('search/category');
 export const addCartItem = createAction<CartItem>('cart/add');
 
 export const setQuantity = createAction<CartItemQuantity>('cart/setQuantity');
+
+export const clearCart = createAction('cart/clear');

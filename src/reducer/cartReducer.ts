@@ -2,6 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import {
   addCartItem,
   CartItem as CartState,
+  clearCart,
   setQuantity,
 } from '../actions';
 
@@ -17,5 +18,9 @@ export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
   builder.addCase(setQuantity, (state, { payload }) => {
     const cartItemIndex = state.findIndex((item) => item.id === payload.id);
     state[cartItemIndex].quantity = payload.quantity;
+  });
+
+  builder.addCase(clearCart, (state) => {
+    state.length = 0;
   });
 });
