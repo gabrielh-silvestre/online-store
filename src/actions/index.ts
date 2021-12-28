@@ -12,8 +12,12 @@ export interface CartItem {
   };
 }
 
+type CartItemQuantity = Pick<CartItem, 'id' | 'quantity'>;
+
 export const setSearchTerm = createAction<string>('search/term');
 
 export const setCategory = createAction<string>('search/category');
 
 export const addCartItem = createAction<CartItem>('cart/add');
+
+export const setQuantity = createAction<CartItemQuantity>('cart/setQuantity');
