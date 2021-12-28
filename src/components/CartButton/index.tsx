@@ -8,12 +8,18 @@ interface CartButtonProps {
   onClick?: () => void;
 }
 
-export function CartButton({ children, isStrong, fontSize }: CartButtonProps) {
+export function CartButton({
+  children,
+  isStrong,
+  fontSize,
+  onClick,
+}: CartButtonProps) {
   return (
     <CartButtonContainer
       $fontSize={fontSize}
       $isStrong={isStrong}
       type="button"
+      onClick={onClick}
     >
       {children}
     </CartButtonContainer>
