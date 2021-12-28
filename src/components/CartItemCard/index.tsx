@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 
@@ -14,6 +15,7 @@ import {
 
 export function CartItemCard(props: CartItemCardProps) {
   const dispatch = useDispatch();
+  const [hasMinQuantity, setHasMinQuantity] = useState(true);
 
   const handleArrowClick = (
     id: string,
@@ -32,28 +34,39 @@ export function CartItemCard(props: CartItemCardProps) {
     }).format(props.price);
   };
 
+  useEffect(() => {
+    setHasMinQuantity(props.quantity <= 1);
+  }, [props]);
+
   return (
     <Container>
       <Image width={90} height={90} src={props.thumbnail} alt={props.title} />
       <ProductName>{props.title}</ProductName>
-      <p className="text-xs text-center">
+      <div className="text-xs text-center">
         Quant:
         <ProductQuantity>
-          <HiChevronLeft
-            className="w-6 h-6 text-red"
+          <button
+            type="button"
+            disabled={hasMinQuantity}
+            className="text-red disabled:text-opacity-50"
             onClick={() => {
               handleArrowClick(props.id, props.quantity);
             }}
-          />
+          >
+            <HiChevronLeft className="w-6 h-6" />
+          </button>
           {props.quantity}
-          <HiChevronRight
-            className="w-6 h-6 text-red"
+          <button
+            type="button"
+            className="text-red disabled:text-opacity-50"
             onClick={() => {
               handleArrowClick(props.id, props.quantity, true);
             }}
-          />
+          >
+            <HiChevronRight className="w-6 h-6" />
+          </button>
         </ProductQuantity>
-      </p>
+      </div>
       <ProductPrice>{formatPrice()}</ProductPrice>
     </Container>
   );
