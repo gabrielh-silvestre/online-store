@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from '../../store';
 
-import { BillInfo, BillValue } from './styles';
+import { BillInfo, BillValue, FinalPrice } from './styles';
 
 interface billState {
   price: number;
@@ -38,15 +38,19 @@ export function Bill() {
 
   return (
     <>
-      <BillInfo>
-        Valor: <BillValue>{formatPrice(bill.price)}</BillValue>
-      </BillInfo>
-      <BillInfo>
-        Frete: <BillValue>{formatPrice(bill.shipping)}</BillValue>
-      </BillInfo>
-      <BillInfo>
-        Total: <BillValue>{formatPrice(bill.total)}</BillValue>
-      </BillInfo>
+      <div>
+        <BillInfo>
+          Valor: <BillValue>{formatPrice(bill.price)}</BillValue>
+        </BillInfo>
+        <BillInfo>
+          Frete: <BillValue>{formatPrice(bill.shipping)}</BillValue>
+        </BillInfo>
+        <BillInfo>
+          Total: <BillValue>{formatPrice(bill.total)}</BillValue>
+        </BillInfo>
+      </div>
+
+      <FinalPrice>R$200,00</FinalPrice>
     </>
   );
 }
