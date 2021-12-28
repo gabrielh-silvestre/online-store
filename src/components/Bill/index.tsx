@@ -50,7 +50,7 @@ export function Bill() {
         </BillInfo>
       </div>
 
-      <FinalPrice>R$200,00</FinalPrice>
+      <FinalPrice>{formatPrice(bill.total)}</FinalPrice>
     </>
   );
 }
