@@ -37,7 +37,7 @@ const Cart: NextPage = () => {
               </div>
             </div>
 
-            <div className="my-4">
+            <div className="h-[26rem] overflow-y-auto my-4">
               <CartItems />
             </div>
 
