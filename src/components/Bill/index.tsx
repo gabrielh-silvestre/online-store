@@ -24,10 +24,10 @@ export function Bill() {
 
   useEffect(() => {
     const cartItemsPrice = cart.reduce(
-      (acc, { price, shipping }) => {
+      (acc, { price, quantity, shipping }) => {
         if (shipping.free_shipping) acc.shipping = 14.99;
-        acc.price += price;
-        acc.total += price + acc.shipping;
+        acc.price += price * quantity;
+        acc.total = acc.price + acc.shipping;
         return acc;
       },
       { price: 0, shipping: 0, total: 0 }
