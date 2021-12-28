@@ -63,25 +63,6 @@ export const CartBillContainer = tw.section`
   bg-white
 `;
 
-export const BillInfo = tw.p`
-  mb-1
-
-  flex
-  justify-between
-  items-center
-
-  text-sm
-  text-black
-
-  border-b
-  border-gray
-`;
-
-export const BillValue = tw.span`
-  font-bold
-  text-base
-`;
-
 export const FinalPrice = tw.h3`
   p-8
 
