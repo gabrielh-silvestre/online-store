@@ -51,7 +51,7 @@ export const CartItemsContainer = tw.section`
   bg-white
 `;
 
-export const CartBillContainer = tw.section`
+export const CartResumeContainer = tw.section`
   p-4
 
   flex
@@ -61,18 +61,4 @@ export const CartBillContainer = tw.section`
   rounded-md
 
   bg-white
-`;
-
-export const FinalPrice = tw.h3`
-  p-8
-
-  font-bold
-  text-center
-  text-3xl
-  text-green
-
-  bg-green
-  bg-opacity-25
-
-  rounded-md
 `;

@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
-import { Bill } from '../src/components/Bill';
 
+import { Bill } from '../src/components/Bill';
 import { CartButton } from '../src/components/CartButton';
 import { CartItems } from '../src/components/CartItems';
 
@@ -9,8 +9,7 @@ import {
   ContentContainer,
   CartItemsContainer,
   SectionTitle,
-  CartBillContainer,
-  FinalPrice,
+  CartResumeContainer,
   CupomContainer,
   CupomInput,
 } from '../styles/pageCart';
@@ -40,19 +39,15 @@ const Cart: NextPage = () => {
             </CupomContainer>
           </CartItemsContainer>
 
-          <CartBillContainer>
+          <CartResumeContainer>
             <SectionTitle>Resumo</SectionTitle>
 
-            <div className="my-4">
-              <Bill />
-            </div>
-
-            <FinalPrice>R$200,00</FinalPrice>
+            <Bill />
 
             <div className="h-12">
               <CartButton isStrong>Finalizar</CartButton>
             </div>
-          </CartBillContainer>
+          </CartResumeContainer>
         </ContentContainer>
       </div>
     </Container>
