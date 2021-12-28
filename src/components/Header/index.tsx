@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
 import { CategoriesList } from '../CategoriesList';
@@ -31,8 +31,15 @@ export function Header() {
 
         <HeaderNav>
           <HiHeart className="w-8 h-8 mr-8" />
-          <HiShoppingCart className="w-8 h-8 mr-8" />
-          <HiMenu className="w-8 h-8" onClick={handleListToggle} />
+          <Link href="/cart" passHref>
+            <a>
+              <HiShoppingCart className="w-8 h-8 mr-8 cursor-pointer" />
+            </a>
+          </Link>
+          <HiMenu
+            className="w-8 h-8 cursor-pointer"
+            onClick={handleListToggle}
+          />
         </HeaderNav>
 
         <List $isHide={isListHide}>
