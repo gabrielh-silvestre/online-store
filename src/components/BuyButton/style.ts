@@ -10,4 +10,9 @@ export const Button = tw.button`
   rounded-md
 
   bg-red
+
+  transition-all
+  duration-300
+
+  hover:brightness-90
 `;
