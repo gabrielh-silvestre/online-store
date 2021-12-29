@@ -8,6 +8,8 @@ export const Container = tw.section`
 
   bg-white
 
+  shadow
+
   transition-shadow
   duration-300
 
