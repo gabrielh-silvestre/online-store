@@ -3,6 +3,7 @@ import {
   addCartItem,
   CartItem as CartState,
   clearCart,
+  removeCartItem,
   setQuantity,
 } from '../actions';
 
@@ -22,5 +23,10 @@ export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
 
   builder.addCase(clearCart, (state) => {
     state.length = 0;
+  });
+
+  builder.addCase(removeCartItem, (state, { payload }) => {
+    const cartItemIndex = state.findIndex((item) => item.id === payload.id);
+    state.splice(cartItemIndex, 1);
   });
 });
