@@ -25,7 +25,7 @@ export function Bill() {
   useEffect(() => {
     const cartItemsPrice = cart.reduce(
       (acc, { price, quantity, shipping }) => {
-        if (shipping.free_shipping) acc.shipping = 14.99;
+        if (!shipping.free_shipping) acc.shipping = 14.99;
         acc.price += price * quantity;
         acc.total = acc.price + acc.shipping;
         return acc;
