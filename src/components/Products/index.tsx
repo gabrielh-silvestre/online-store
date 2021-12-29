@@ -9,7 +9,7 @@ interface ProductsProps {
         title: string;
         price: number;
         currency_id: string;
-        avaible_quantity: number;
+        available_quantity: number;
         thumbnail: string;
         shipping: {
           free_shipping: boolean;
