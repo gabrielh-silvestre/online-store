@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 
-import { CartItem as CartItemCardProps, setQuantity } from '../../actions';
+import {
+  CartItem as CartItemCardProps,
+  removeCartItem,
+  setQuantity,
+} from '../../actions';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
@@ -16,7 +20,6 @@ import Link from 'next/link';
 
 export function CartItemCard(props: CartItemCardProps) {
   const dispatch = useDispatch();
-  const [hasMinQuantity, setHasMinQuantity] = useState(true);
   const [hasMaxQuantity, setHasMaxQuantity] = useState(false);
 
   const handleArrowClick = (
@@ -24,9 +27,13 @@ export function CartItemCard(props: CartItemCardProps) {
     quantity: number,
     increment?: boolean
   ) => {
-    increment
-      ? dispatch(setQuantity({ id, quantity: (quantity += 1) }))
-      : dispatch(setQuantity({ id, quantity: (quantity -= 1) }));
+    if (increment) {
+      dispatch(setQuantity({ id, quantity: (quantity += 1) }));
+    } else {
+      quantity <= 1
+        ? dispatch(removeCartItem({ id }))
+        : dispatch(setQuantity({ id, quantity: (quantity -= 1) }));
+    }
   };
 
   const formatPrice = () => {
@@ -37,7 +44,6 @@ export function CartItemCard(props: CartItemCardProps) {
   };
 
   useEffect(() => {
-    setHasMinQuantity(props.quantity > 1);
     setHasMaxQuantity(props.quantity < props.available_quantity);
   }, [props]);
 
@@ -52,7 +58,6 @@ export function CartItemCard(props: CartItemCardProps) {
         <ProductQuantity>
           <button
             type="button"
-            disabled={!hasMinQuantity}
             className="text-red disabled:text-opacity-50"
             onClick={() => {
               handleArrowClick(props.id, props.quantity);
