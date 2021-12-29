@@ -21,7 +21,7 @@ export const CategoriesNav = tw(ContainerNav)`
 
   overflow-y-auto
 
-  rounded-bl-md
+  rounded-b-md
 
   bg-black
 `;
@@ -36,6 +36,5 @@ export const CategoryItem = tw.a`
 
   duration-75
 
-  filter
   hover:bg-red
 `;

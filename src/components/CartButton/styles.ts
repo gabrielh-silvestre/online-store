@@ -19,4 +19,9 @@ export const CartButtonContainer = tw.button<{
   bg-red
 
   rounded-md
+
+  transition-all
+  duration-300
+
+  hover:brightness-90
 `;
