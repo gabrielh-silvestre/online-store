@@ -10,6 +10,7 @@ export function BuyButton({
   id,
   title,
   price,
+  available_quantity,
   currency_id,
   shipping,
   thumbnail,
@@ -25,6 +26,7 @@ export function BuyButton({
         currency_id,
         shipping,
         thumbnail,
+        available_quantity,
         quantity: 1,
       })
     );
