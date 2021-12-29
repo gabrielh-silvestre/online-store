@@ -4,8 +4,6 @@ export const Container = tw.main`
   container
 
   min-h-screen
-
-  bg-black
 `;
 
 export const ContentContainer = tw.article`
@@ -16,7 +14,7 @@ export const ContentContainer = tw.article`
 
   rounded-md
 
-  bg-gray-light
+  bg-white
 `;
 
 export const SellerInfo = tw.div`

@@ -65,7 +65,7 @@ const ProductDetail = ({ productDetail, seller }: ProductDetailProps) => {
     );
 
   return (
-    <div className="bg-black">
+    <div className="bg-gray-light pt-8">
       <Head>
         <title>
           {productDetail.title} | {seller.nickname}
