@@ -12,10 +12,12 @@ import {
   ProductPrice,
   ProductQuantity,
 } from './styles';
+import Link from 'next/link';
 
 export function CartItemCard(props: CartItemCardProps) {
   const dispatch = useDispatch();
   const [hasMinQuantity, setHasMinQuantity] = useState(true);
+  const [hasMaxQuantity, setHasMaxQuantity] = useState(false);
 
   const handleArrowClick = (
     id: string,
@@ -35,19 +37,22 @@ export function CartItemCard(props: CartItemCardProps) {
   };
 
   useEffect(() => {
-    setHasMinQuantity(props.quantity <= 1);
+    setHasMinQuantity(props.quantity > 1);
+    setHasMaxQuantity(props.quantity < props.available_quantity);
   }, [props]);
 
   return (
     <Container>
-      <Image width={90} height={90} src={props.thumbnail} alt={props.title} />
+      <Link href={`/product/${props.id}`} passHref>
+        <Image width={90} height={90} src={props.thumbnail} alt={props.title} />
+      </Link>
       <ProductName>{props.title}</ProductName>
       <div className="text-xs text-center">
         Quant:
         <ProductQuantity>
           <button
             type="button"
-            disabled={hasMinQuantity}
+            disabled={!hasMinQuantity}
             className="text-red disabled:text-opacity-50"
             onClick={() => {
               handleArrowClick(props.id, props.quantity);
@@ -58,6 +63,7 @@ export function CartItemCard(props: CartItemCardProps) {
           {props.quantity}
           <button
             type="button"
+            disabled={!hasMaxQuantity}
             className="text-red disabled:text-opacity-50"
             onClick={() => {
               handleArrowClick(props.id, props.quantity, true);
