@@ -53,7 +53,7 @@ export function CartItemCard(props: CartItemCardProps) {
         <Image width={90} height={90} src={props.thumbnail} alt={props.title} />
       </Link>
       <ProductName>{props.title}</ProductName>
-      <div className="text-xs text-center">
+      <div className="text-xs text-center self-center">
         Quant:
         <ProductQuantity>
           <button
@@ -65,7 +65,7 @@ export function CartItemCard(props: CartItemCardProps) {
           >
             <HiChevronLeft className="w-6 h-6" />
           </button>
-          {props.quantity}
+          <span>{props.quantity}</span>
           <button
             type="button"
             disabled={!hasMaxQuantity}
