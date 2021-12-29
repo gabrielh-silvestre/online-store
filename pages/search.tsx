@@ -29,7 +29,7 @@ const Search = ({ products }: SearchProps) => {
       <Head>
         <title>Search</title>
       </Head>
-      <main className="min-h-screen relative bg-black pb-8">
+      <main className="min-h-screen relative bg-gray-light pb-8">
         <div className="container">
           <Products products={products.results} />
         </div>
