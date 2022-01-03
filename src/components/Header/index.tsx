@@ -30,7 +30,7 @@ export function Header() {
         <SearchInput />
 
         <HeaderNav>
-          <Link href="/favorites" passHref>
+          <Link href="/favorite" passHref>
             <a>
               <HiHeart className="w-8 h-8 mr-8" />
             </a>
