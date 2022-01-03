@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 
 import store from '../src/store';
+import { Toaster } from 'react-hot-toast';
 
 import { Header } from '../src/components/Header';
 import NextNProgress from 'nextjs-progressbar';
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress />
       <Header />
       <Component {...pageProps} />
+      <Toaster />
     </Provider>
   );
 }
