@@ -19,7 +19,7 @@ export function FavoriteHeart({ item, className }: FavoriteHeartProps) {
   };
 
   const handleRemoveFavorite = () => {
-    dispatch(removeFavoriteItem(item.id));
+    dispatch(removeFavoriteItem(item));
   };
 
   return favorite.find(({ id }) => item.id === id) ? (
