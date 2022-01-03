@@ -31,4 +31,4 @@ export const clearCart = createAction('cart/clear');
 
 export const addFavoriteItem = createAction<FavoriteItem>('favorite/add');
 
-export const removeFavoriteItem = createAction<string>('favorite/remove');
+export const removeFavoriteItem = createAction<FavoriteItem>('favorite/remove');
