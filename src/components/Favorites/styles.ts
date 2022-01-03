@@ -1,4 +1,4 @@
-import tw from "tailwind-styled-components";
+import tw from 'tailwind-styled-components';
 
 export const Container = tw.article`
   min-h-full
@@ -10,4 +10,14 @@ export const Container = tw.article`
   gap-4
 
   rounded-md
+`;
+
+export const FavoriteWarn = tw.h3`
+  pt-16
+
+  text-center
+  text-4xl
+  text-gray
+
+  font-bold
 `;

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 import { ProductCard } from '../ProductCard';
-import { Container } from './styles';
+import { Container, FavoriteWarn } from './styles';
 
 export function Favorites() {
   const favorite = useSelector(({ favorite }: RootState) => favorite);
@@ -15,6 +15,6 @@ export function Favorites() {
       ))}
     </Container>
   ) : (
-    <div>Sem favoritos</div>
+    <FavoriteWarn>Nenhum favorito :(</FavoriteWarn>
   );
 }
