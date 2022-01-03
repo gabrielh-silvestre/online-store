@@ -1,20 +1,6 @@
-import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
-const ScrollContainer = styled.article`
-  /* width */
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: #DA0037;
-    border-radius: 6px;
-  }
-`;
-
-export const Container = tw(ScrollContainer)`
+export const Container = tw.article`
   min-h-full
   p-8
 
