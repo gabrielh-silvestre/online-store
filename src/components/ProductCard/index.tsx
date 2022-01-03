@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 import { BuyButton } from '../BuyButton';
+import { FavoriteHeart } from '../FavoriteHeart';
 
 import {
   ButtonContainer,
@@ -42,6 +43,10 @@ export function ProductCard(props: ProductCardProps) {
 
   return (
     <Container>
+      <FavoriteHeart
+        item={props}
+        className="w-8 h-8 z-10 absolute right-0 top-0 text-red"
+      />
       <Link href={`/product/${props.id}`} passHref>
         <Image
           width={500}

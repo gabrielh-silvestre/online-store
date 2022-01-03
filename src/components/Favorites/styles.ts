@@ -11,3 +11,13 @@ export const Container = tw.article`
 
   rounded-md
 `;
+
+export const FavoriteWarn = tw.h3`
+  pt-16
+
+  text-center
+  text-4xl
+  text-gray
+
+  font-bold
+`;
