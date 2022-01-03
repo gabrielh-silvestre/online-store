@@ -30,7 +30,11 @@ export function Header() {
         <SearchInput />
 
         <HeaderNav>
-          <HiHeart className="w-8 h-8 mr-8" />
+          <Link href="/favorites" passHref>
+            <a>
+              <HiHeart className="w-8 h-8 mr-8" />
+            </a>
+          </Link>
           <Link href="/cart" passHref>
             <a>
               <HiShoppingCart className="w-8 h-8 mr-8 cursor-pointer" />
