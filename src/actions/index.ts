@@ -30,3 +30,5 @@ export const setQuantity = createAction<CartItemQuantity>('cart/setQuantity');
 export const clearCart = createAction('cart/clear');
 
 export const addFavoriteItem = createAction<FavoriteItem>('favorite/add');
+
+export const removeFavoriteItem = createAction<string>('favorite/remove');
