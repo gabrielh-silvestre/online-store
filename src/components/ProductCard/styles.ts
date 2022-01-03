@@ -1,6 +1,8 @@
 import tw from 'tailwind-styled-components';
 
 export const Container = tw.section`
+  relative
+
   flex
   flex-col
 
