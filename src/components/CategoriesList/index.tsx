@@ -17,7 +17,9 @@ const DEFAULT_CATEGORY_ITEM = { id: '', name: 'Nenhuma' };
 
 export function CategoriesList() {
   const [categories, setCategories] = useState<Categories[]>([]);
-  const { searchTerm } = useSelector(({ search }: RootState) => search);
+  const { searchTerm, category } = useSelector(
+    ({ search }: RootState) => search
+  );
   const dispatch = useDispatch();
 
   const handleSelectCategory = (categoryId: string) => {
@@ -38,6 +40,7 @@ export function CategoriesList() {
       {categories.map(({ id, name }) => (
         <Link key={id} passHref href={`/search?q=${searchTerm}&category=${id}`}>
           <CategoryItem
+            $isSelected={id === category}
             onClick={() => {
               handleSelectCategory(id);
             }}
