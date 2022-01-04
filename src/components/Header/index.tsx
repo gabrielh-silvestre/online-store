@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import { HiShoppingCart, HiHeart, HiMenu } from 'react-icons/hi';
+import { HiShoppingCart, HiHeart } from 'react-icons/hi';
+import { Turn as Hamburger } from 'hamburger-react';
 import { CategoriesList } from '../CategoriesList';
 import { SearchInput } from '../SearchInput';
 
@@ -14,11 +15,7 @@ import {
 } from './styles';
 
 export function Header() {
-  const [isListHide, setisListHide] = useState(true);
-
-  const handleListToggle = () => {
-    setisListHide(!isListHide);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Container>
@@ -40,15 +37,11 @@ export function Header() {
               <HiShoppingCart className="w-8 h-8 mr-8 cursor-pointer" />
             </a>
           </Link>
-          <HiMenu
-            className="w-8 h-8 cursor-pointer"
-            onClick={handleListToggle}
-          />
+          <Hamburger toggle={setIsOpen} toggled={isOpen} direction="left" />
+          <List $isOpen={isOpen}>
+            <CategoriesList />
+          </List>
         </HeaderNav>
-
-        <List $isHide={isListHide}>
-          <CategoriesList />
-        </List>
       </ContentContainer>
     </Container>
   );
