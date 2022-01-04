@@ -22,7 +22,8 @@ const Search = ({ products }: SearchProps) => {
       dispatch(setCategory(''));
       dispatch(setSearchTerm(''));
     };
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
