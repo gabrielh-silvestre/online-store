@@ -26,7 +26,12 @@ module.exports = {
         '2xl': '6rem',
       },
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        'hl':
+          '0 5px 5px 5px rgb(0 0 0 / 0.1)',
+      },
+    },
   },
   plugins: [],
 };
