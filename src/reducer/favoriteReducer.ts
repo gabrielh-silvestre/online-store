@@ -7,18 +7,18 @@ const INITIAL_STATE = [] as Array<FavoriteItem>;
 
 export const FavoriteReducer = createReducer(INITIAL_STATE, (builder) => {
   builder.addCase(addFavoriteItem, (state, { payload }) => {
-    toast.success(`${payload.title} adicionado aos favoritos`, {
+    toast.success(`${payload.title}`, {
       id: payload.id,
-      className: 'max-h-20 py-2 overflow-clip hover:overflow-y-auto',
+      className: 'max-h-20 py-4 truncate',
     });
 
     state.push(payload);
   });
 
   builder.addCase(removeFavoriteItem, (state, { payload }) => {
-    toast.error(`${payload.title} removido dos favoritos`, {
+    toast.error(`${payload.title}`, {
       id: payload.id,
-      className: 'max-h-20 py-2 overflow-clip hover:overflow-y-auto',
+      className: 'max-h-20 py-4 truncate',
     });
 
     const favoriteIndex = state.findIndex((item) => item.id === payload.id);

@@ -13,9 +13,9 @@ const INITIAL_STATE = [] as Array<CartState>;
 
 export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
   builder.addCase(addCartItem, (state, { payload }) => {
-    toast.success(`${payload.title} adicionado ao carrinho`, {
+    toast.success(`${payload.title}`, {
       id: payload.id,
-      className: 'max-h-20 py-2 overflow-clip hover:overflow-y-auto',
+      className: 'max-h-20 py-2',
     });
 
     const cartItem = state.find((item) => item.id === payload.id);
@@ -33,9 +33,9 @@ export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
   });
 
   builder.addCase(removeCartItem, (state, { payload }) => {
-    toast.error(`${payload.title} removido do carrinho`, {
+    toast.error(`${payload.title}`, {
       id: payload.id,
-      className: 'max-h-20 py-2 overflow-clip hover:overflow-y-auto',
+      className: 'max-h-20 py-2',
     });
 
     const cartItemIndex = state.findIndex((item) => item.id === payload.id);
