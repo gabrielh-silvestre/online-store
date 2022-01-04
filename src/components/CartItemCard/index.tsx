@@ -31,7 +31,7 @@ export function CartItemCard(props: CartItemCardProps) {
       dispatch(setQuantity({ id, quantity: (quantity += 1) }));
     } else {
       quantity <= 1
-        ? dispatch(removeCartItem({ id }))
+        ? dispatch(removeCartItem(props))
         : dispatch(setQuantity({ id, quantity: (quantity -= 1) }));
     }
   };

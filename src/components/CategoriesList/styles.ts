@@ -26,15 +26,16 @@ export const CategoriesNav = tw(ContainerNav)`
   bg-black
 `;
 
-export const CategoryItem = tw.a`
+export const CategoryItem = tw.a<{ $isSelected: boolean }>`
+  ${({ $isSelected }) => ($isSelected ? 'text-red' : 'text-gray-light')}
+
   py-2
   px-8
 
-
   text-lg
-  text-gray-light
 
   duration-75
 
   hover:bg-red
+  hover:text-gray-light
 `;

@@ -15,7 +15,7 @@ export const Container = tw.section`
   transition-shadow
   duration-300
 
-  hover:shadow-xl
+  hover:shadow-hl
 `;
 
 export const ProductInfo = tw.div`

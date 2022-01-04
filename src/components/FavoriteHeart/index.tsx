@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../../store';
+import { addFavoriteItem, CartItem, removeFavoriteItem } from '../../actions';
 
 import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
-import { addFavoriteItem, CartItem, removeFavoriteItem } from '../../actions';
 
 interface FavoriteHeartProps {
   item: Omit<CartItem, 'quantity'>;
@@ -19,7 +19,7 @@ export function FavoriteHeart({ item, className }: FavoriteHeartProps) {
   };
 
   const handleRemoveFavorite = () => {
-    dispatch(removeFavoriteItem(item.id));
+    dispatch(removeFavoriteItem(item));
   };
 
   return favorite.find(({ id }) => item.id === id) ? (

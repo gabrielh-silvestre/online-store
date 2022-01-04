@@ -1,4 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
+
 import {
   addCartItem,
   CartItem as CartState,
@@ -11,6 +13,11 @@ const INITIAL_STATE = [] as Array<CartState>;
 
 export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
   builder.addCase(addCartItem, (state, { payload }) => {
+    toast.success(`${payload.title}`, {
+      id: payload.id,
+      className: 'max-h-20 py-2',
+    });
+
     const cartItem = state.find((item) => item.id === payload.id);
 
     !cartItem ? state.push(payload) : (cartItem.quantity += 1);
@@ -26,6 +33,11 @@ export const CartReducer = createReducer(INITIAL_STATE, (builder) => {
   });
 
   builder.addCase(removeCartItem, (state, { payload }) => {
+    toast.error(`${payload.title}`, {
+      id: payload.id,
+      className: 'max-h-20 py-2',
+    });
+
     const cartItemIndex = state.findIndex((item) => item.id === payload.id);
     state.splice(cartItemIndex, 1);
   });

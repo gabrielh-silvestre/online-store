@@ -39,8 +39,8 @@ export const HeaderNav = tw.nav`
   text-base
 `;
 
-export const List = tw.div<{ $isHide: boolean }>`
-  ${({ $isHide }) => ($isHide ? 'hidden' : 'block')}
+export const List = tw.div<{ $isOpen: boolean }>`
+  ${({ $isOpen }) => ($isOpen ? 'block' : 'hidden')}
 
   absolute
   right-20
